@@ -34,6 +34,10 @@ app.put("/repositories/:id", (request, response) => {
   
   repository = {...repository, title, url, techs}
 
+  const repoIndex = repositories.findIndex(repo => repo.id === id);
+
+  repositories[repoIndex] = repository;
+  
   return response.json( repository )
 });
 
